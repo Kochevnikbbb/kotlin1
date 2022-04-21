@@ -13,6 +13,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var registerForActivityResult: ActivityResultLauncher<Intent>
 
+    companion object {
+        const val MY_KEY = "key"
+        const val MY_KEY2 = "kesdfsy"
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
             } else {
                 Intent(this@MainActivity, SecondActivity::class.java).apply {
-                    putExtra("sdfsd", binding.etText1.text.toString())
+                    putExtra(MY_KEY, binding.etText1.text.toString())
                     registerForActivityResult.launch(this)
                 }
             }
@@ -36,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
-            binding.etText1.setText(result.data?.getStringExtra("sdfgdssdg"))
+            binding.etText1.setText(result.data?.getStringExtra(MY_KEY2))
         }
     }
 }

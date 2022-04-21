@@ -14,11 +14,11 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.etText2.setText(intent.getStringExtra("sdfsd"))
+        binding.etText2.setText(intent.getStringExtra(MainActivity.MY_KEY))
         binding.btn2.setOnClickListener {
             setResult(
                 RESULT_OK, Intent().putExtra(
-                    "sdfgdssdg",
+                    MainActivity.MY_KEY2,
                     binding.etText2.text.toString()
                 )
             )
